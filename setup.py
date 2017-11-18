@@ -10,11 +10,14 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    # TODO: put package requirements here
+    'jsonschema',
+    'flask'
 ]
 
 test_requirements = [
-    'pylint'
+    'pylint',
+    'unittest2',
+    'webtest'
     # TODO: put package test requirements here
 ]
 
@@ -26,11 +29,7 @@ setup(
     author="Tim Martin",
     author_email='oss@timmartin.me',
     url='https://github.com/timmartin19/flask-schema',
-    packages=[
-        'flask_schema',
-    ],
-    package_dir={'flask_schema':
-                 'flask_schema'},
+    py_modules=['flask_schema'],
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
