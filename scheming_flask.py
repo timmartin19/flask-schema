@@ -21,7 +21,7 @@ except ImportError:
 
 __author__ = 'Tim Martin'
 __email__ = 'oss@timmartin.me'
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 
 class SchemaValidationError(UnprocessableEntity):
