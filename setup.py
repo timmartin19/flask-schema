@@ -22,7 +22,7 @@ test_requirements = [
 
 setup(
     name='scheming-flask',
-    version='0.1.0',
+    version='0.1.1',
     description="Use JSON Schema to validate incoming requests",
     long_description=readme + '\n\n' + history,
     author="Tim Martin",
