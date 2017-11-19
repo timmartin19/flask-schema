@@ -1,4 +1,4 @@
-* flask-schema version:
+* scheming-flask version:
 * Python version:
 * Operating System:
 

@@ -1,20 +1,20 @@
 ===============================
-flask-schema
+scheming-flask
 ===============================
 
 
-.. image:: https://img.shields.io/pypi/v/flask_schema.svg
-        :target: https://pypi.python.org/pypi/flask_schema
+.. image:: https://img.shields.io/pypi/v/scheming_flask.svg
+        :target: https://pypi.python.org/pypi/scheming_flask
 
-.. image:: https://img.shields.io/travis/timmartin19/flask_schema.svg
-        :target: https://travis-ci.org/timmartin19/flask_schema
+.. image:: https://img.shields.io/travis/timmartin19/scheming_flask.svg
+        :target: https://travis-ci.org/timmartin19/scheming_flask
 
-.. image:: https://readthedocs.org/projects/flask-schema/badge/?version=latest
-        :target: https://flask-schema.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/scheming-flask/badge/?version=latest
+        :target: https://scheming-flask.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/timmartin19/flask_schema/shield.svg
-     :target: https://pyup.io/repos/github/timmartin19/flask_schema/
+.. image:: https://pyup.io/repos/github/timmartin19/scheming_flask/shield.svg
+     :target: https://pyup.io/repos/github/timmartin19/scheming_flask/
      :alt: Updates
 
 
@@ -22,7 +22,7 @@ Use JSON Schema to validate incoming requests
 
 
 * Free software: MIT license
-* Documentation: https://flask-schema.readthedocs.io.
+* Documentation: https://scheming-flask.readthedocs.io.
 
 
 Documentation
@@ -47,8 +47,8 @@ Assuming you have virtualenv wrapper installed
 
 .. code-block:: bash
 
-    mkvirtualenv flask-schema
-    workon flask-schema
+    mkvirtualenv scheming-flask
+    workon scheming-flask
     pip install -r requirements_dev.txt
     pip install -e .
 

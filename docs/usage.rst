@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use flask-schema in a project::
+To use scheming-flask in a project::
 
-    import flask_schema
+    import scheming_flask

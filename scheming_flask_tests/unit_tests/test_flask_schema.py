@@ -5,7 +5,7 @@ from enum import Enum
 from flask import Flask
 from jsonschema import Draft3Validator, Draft4Validator, SchemaError
 
-from flask_schema import FlaskSchema, SchemaLoad
+from scheming_flask import FlaskSchema, SchemaLoad
 
 
 _TEST_SCHEMA = os.path.join(os.path.dirname(__file__), '..', 'schemas')

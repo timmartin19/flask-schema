@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-open-source-init full flask-schema --pypi pypi --pypi-username timmartin19
+open-source-init full scheming-flask --pypi pypi --pypi-username timmartin19

@@ -25,4 +25,4 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: timmartin19/flask-schema
+    repo: timmartin19/scheming-flask

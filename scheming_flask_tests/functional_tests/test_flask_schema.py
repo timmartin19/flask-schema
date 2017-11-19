@@ -5,7 +5,7 @@ from flask import Flask, request
 from jsonschema import ValidationError
 from webtest import TestApp
 
-from flask_schema import FlaskSchema
+from scheming_flask import FlaskSchema
 
 
 class TestFlaskIntegration(unittest2.TestCase):
