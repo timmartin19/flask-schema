@@ -9,10 +9,8 @@ from __future__ import unicode_literals
 import os
 from functools import wraps
 
-from enum import Enum
 from flask import request
 from jsonschema import Draft4Validator, ValidationError
-from werkzeug.exceptions import UnprocessableEntity
 
 try:
     import ujson as json
@@ -22,44 +20,6 @@ except ImportError:
 __author__ = 'Tim Martin'
 __email__ = 'oss@timmartin.me'
 __version__ = '0.1.2'
-
-
-class SchemaValidationError(UnprocessableEntity):
-    """
-    Wraps a ValidationException in a format
-    that returns something useful to the frontend
-    """
-    def __init__(self, exc, *args, **kwargs):
-        self.validation_exception = exc
-        super(SchemaValidationError, self).__init__(str(exc), *args, **kwargs)
-
-
-class SchemaLoad(Enum):
-    """
-    An Enum that indicates when the jsonschema should be loaded
-    """
-    def __lt__(self, other):
-        if self.__class__ is other.__class__:
-            return self.value < other.value
-        self_name = self.__class__.__name__
-        other_name = other.__class__.__name__
-        raise NotImplementedError(
-            'Cannot compare {0} '
-            'to {1}'.format(self_name, other_name))
-
-    def __gt__(self, other):
-        return not self.__lt__(other) and not self == other
-
-    def __ge__(self, other):
-        return not self.__lt__(other)
-
-    def __le__(self, other):
-        return self.__lt__(other) or self == other
-
-    ALWAYS_RELOAD = 0
-    ON_FIRST_USE = 1
-    ON_INIT = 2
-    ON_DECORATE = 3
 
 
 class FlaskSchema(object):
