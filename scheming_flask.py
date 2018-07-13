@@ -62,6 +62,10 @@ class SchemaLoad(Enum):
     ON_DECORATE = 3
 
 
+def _request_loader():
+    return request.get_json()
+
+
 class FlaskSchema(object):
     """
     Used to wrap flask routes so that the
@@ -71,7 +75,8 @@ class FlaskSchema(object):
                  schema_dir=None,
                  load_on=SchemaLoad.ON_INIT,
                  validator=Draft4Validator,
-                 json_loader=json):
+                 json_loader=json,
+                 request_loader=_request_loader):
         """
         :param str schema_dir: The directory which contains
             the jsonschemas
@@ -90,6 +95,7 @@ class FlaskSchema(object):
         self._schemas = {}
         self._schema_load_ons = {}
         self._json_loader = json_loader
+        self._request_loader = request_loader
 
     @property
     def schema_dir(self):
@@ -112,7 +118,13 @@ class FlaskSchema(object):
                 self._schemas[schema_name] = self._build_schema(
                     schema_name, self._validator_builder)
 
-    def validate(self, schema_name, load_on=None, validator=None):
+    def validate(
+            self,
+            schema_name,
+            load_on=None,
+            validator=None,
+            request_loader=None
+    ):
         """
         Returns a decorator for validating flask json requests
 
@@ -139,6 +151,7 @@ class FlaskSchema(object):
         if load_on >= SchemaLoad.ON_DECORATE:
             self._schemas[schema_name] = self._build_schema(
                 schema_name, validator)
+        request_loader = request_loader or self._request_loader
 
         def _decorator(func):
             @wraps(func)
@@ -151,7 +164,7 @@ class FlaskSchema(object):
                         schema_name, validator)
                 schema = self._schemas[schema_name]
                 try:
-                    schema.validate(request.get_json())
+                    schema.validate(request_loader())
                 except ValidationError as exc:
                     raise SchemaValidationError(exc)
                 return func(*args, **kwargs)
